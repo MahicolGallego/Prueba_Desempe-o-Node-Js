@@ -10,15 +10,15 @@ import {
 	BelongsTo,
 	HasOne,
 } from 'sequelize-typescript';
-import { Role } from './roleModel';
 import { Cart } from './cartModel';
+import { Product } from './productModel';
 import { Order } from './orderModel';
 
 @Table({
-	tableName: 'users',
+	tableName: 'productcarts',
 	timestamps: false,
 })
-export class User extends Model {
+export class ProductCart extends Model {
 	@PrimaryKey
 	@AutoIncrement
 	@Column({
@@ -27,29 +27,30 @@ export class User extends Model {
 	})
 	declare id: number;
 
-	@Column({
-		type: DataType.STRING(200),
-		allowNull: false,
-	})
-	email!: string;
-
-	@Column({
-		type: DataType.STRING(200),
-		allowNull: false,
-	})
-	password!: string;
-
-	@ForeignKey(() => Role)
+	@ForeignKey(() => Cart)
 	@Column({
 		type: DataType.INTEGER,
 		allowNull: false,
 	})
-	role_id!: number;
+	cart_id!: number;
 
-	@BelongsTo(() => Role)
-	role!: Role;
+	@ForeignKey(() => Product)
+	@Column({
+		type: DataType.INTEGER,
+		allowNull: false,
+	})
+	product_id!: number;
 
-	@HasOne(() => Cart)
+	@Column({
+		type: DataType.INTEGER,
+		allowNull: false,
+	})
+	quantity!: number;
+
+	@BelongsTo(() => Product)
+	product!: Product;
+
+	@BelongsTo(() => Cart)
 	cart!: Cart;
 
 	@HasMany(() => Order)
