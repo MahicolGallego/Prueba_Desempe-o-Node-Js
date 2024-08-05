@@ -1,6 +1,13 @@
 import { Sequelize } from 'sequelize-typescript';
 import dotenv from 'dotenv';
 import { Application } from 'express';
+import { User } from '../models/userModel';
+import { Role } from '../models/roleModel';
+import { Cart } from '../models/cartModel';
+import { Entity } from '../models/entityModel';
+import { Order } from '../models/orderModel';
+import { ProductCart } from '../models/productcartModel';
+import { Product } from '../models/productModel';
 
 dotenv.config();
 
@@ -10,7 +17,7 @@ const sequelize: Sequelize = new Sequelize({
 	username: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
 	database: process.env.DB_NAME,
-	models: [],
+	models: [User, Role, Product, Cart, Entity, Order, ProductCart],
 });
 
 export async function startServer(app: Application, PORT: any) {
