@@ -8,36 +8,36 @@ import {
 } from '../helpers/createCorsOpt';
 
 import cors from 'cors';
-import { UserController } from '../controllers/userController';
+import { ProductController } from '../controllers/productController';
 
-export const userRouter: Router = Router();
+export const productRouter: Router = Router();
 
-userRouter.get(
+productRouter.get(
 	'/',
 	cors(createCorsOptions(getWhitelist)),
-	UserController.getAllUsers,
+	ProductController.getAllProducts,
 );
 
-userRouter.get(
+productRouter.get(
 	'/:id',
 	cors(createCorsOptions(getWhitelist)),
-	UserController.getUserById,
+	ProductController.getProductById,
 );
 
-userRouter.post(
+productRouter.post(
 	'/',
 	cors(createCorsOptions(postWhitelist)),
-	UserController.createUser,
+	ProductController.createProduct,
 );
 
-userRouter.put(
+productRouter.put(
 	'/:id',
 	cors(createCorsOptions(updateWhitelist)),
-	UserController.updateUser,
+	ProductController.updateProduct,
 );
 
-userRouter.delete(
+productRouter.delete(
 	'/:id',
 	cors(createCorsOptions(deleteWhitelist)),
-	UserController.deleteUser,
+	ProductController.deleteProduct,
 );

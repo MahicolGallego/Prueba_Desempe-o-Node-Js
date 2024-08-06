@@ -1,21 +1,21 @@
 import { container } from 'tsyringe';
-import { UserServices } from '../services/userServices';
 import { Request, Response } from 'express';
+import { ProductServices } from '../services/productServices';
 
-export class UserController {
-	static async createUser(req: Request, res: Response) {
-		const userServices = container.resolve(UserServices);
-		const user = await userServices.createUser(req.body);
+export class ProductController {
+	static async createProduct(req: Request, res: Response) {
+		const productServices = container.resolve(ProductServices);
+		const user = await productServices.createProduct(req.body);
 		res.status(201).json({
 			status: 201,
 			user,
 		});
 	}
 
-	static async deleteUser(req: Request, res: Response) {
+	static async deleteProduct(req: Request, res: Response) {
 		try {
-			const userServices = container.resolve(UserServices);
-			await userServices.deleteUser(parseInt(req.params.id));
+			const productServices = container.resolve(ProductServices);
+			await productServices.deleteProduct(parseInt(req.params.id));
 			res.status(200).json({
 				status: 200,
 			});
@@ -34,13 +34,13 @@ export class UserController {
 		}
 	}
 
-	static async updateUser(req: Request, res: Response) {
+	static async updateProduct(req: Request, res: Response) {
 		try {
-			const userServices = container.resolve(UserServices);
-			await userServices.updateUser(parseInt(req.params.id), req.body);
+			const productServices = container.resolve(ProductServices);
+			await productServices.updateProduct(parseInt(req.params.id), req.body);
 			res.status(214).json({
 				status: 214,
-				message: 'User successfully updated',
+				message: 'Product successfully updated',
 			});
 		} catch (error) {
 			if (error instanceof Error)
@@ -57,13 +57,13 @@ export class UserController {
 		}
 	}
 
-	static async getAllUsers(_req: Request, res: Response) {
+	static async getAllProducts(_req: Request, res: Response) {
 		try {
-			const userServices = container.resolve(UserServices);
-			const allUsers = await userServices.getAllUsers();
+			const productServices = container.resolve(ProductServices);
+			const allProducts = await productServices.getAllProducts();
 			res.status(200).json({
 				status: 200,
-				allUsers,
+				allProducts,
 			});
 		} catch (error) {
 			if (error instanceof Error)
@@ -80,13 +80,15 @@ export class UserController {
 		}
 	}
 
-	static async getUserById(req: Request, res: Response) {
+	static async getProductById(req: Request, res: Response) {
 		try {
-			const userServices = container.resolve(UserServices);
-			const user = await userServices.getUserById(parseInt(req.params.id));
+			const productServices = container.resolve(ProductServices);
+			const product = await productServices.getProductById(
+				parseInt(req.params.id),
+			);
 			res.status(302).json({
 				status: 302,
-				user,
+				product,
 			});
 		} catch (error) {
 			if (error instanceof Error)
