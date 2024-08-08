@@ -5,9 +5,6 @@ import {
 	Model,
 	PrimaryKey,
 	Table,
-	HasMany,
-	ForeignKey,
-	BelongsTo,
 } from 'sequelize-typescript';
 
 @Table({

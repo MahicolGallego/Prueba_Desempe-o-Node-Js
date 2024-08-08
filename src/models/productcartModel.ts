@@ -8,7 +8,6 @@ import {
 	HasMany,
 	ForeignKey,
 	BelongsTo,
-	HasOne,
 } from 'sequelize-typescript';
 import { Cart } from './cartModel';
 import { Product } from './productModel';

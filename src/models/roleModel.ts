@@ -6,7 +6,6 @@ import {
 	PrimaryKey,
 	Table,
 	HasMany,
-	ForeignKey,
 } from 'sequelize-typescript';
 import { User } from './userModel';
 

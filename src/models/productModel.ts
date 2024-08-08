@@ -6,8 +6,6 @@ import {
 	PrimaryKey,
 	Table,
 	HasMany,
-	ForeignKey,
-	BelongsTo,
 } from 'sequelize-typescript';
 import { ProductCart } from './productcartModel';
 
