@@ -12,7 +12,7 @@ import { Role } from './roleModel';
 import { Entity } from './entityModel';
 
 @Table({
-	tableName: 'users',
+	tableName: 'permissions',
 	timestamps: false,
 })
 export class Permission extends Model {

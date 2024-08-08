@@ -1,7 +1,5 @@
 import { injectable } from 'tsyringe';
-import { Product } from '../models/productModel';
 import { Order } from '../models/orderModel';
-import { User } from '../models/userModel';
 
 @injectable()
 export class OrderRepository {

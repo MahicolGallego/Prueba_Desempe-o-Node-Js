@@ -63,7 +63,7 @@ export class UserController {
 			const allUsers = await userServices.getAllUsers();
 			res.status(200).json({
 				status: 200,
-				allUsers,
+				users: allUsers,
 			});
 		} catch (error) {
 			if (error instanceof Error)

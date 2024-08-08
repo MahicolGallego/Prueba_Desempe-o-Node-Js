@@ -28,7 +28,7 @@ orderRouter.get(
 orderRouter.get(
 	'/:id/user',
 	cors(createCorsOptions(getWhitelist)),
-	OrderController.getOrderById,
+	OrderController.getOrdersByUser,
 );
 
 orderRouter.post(

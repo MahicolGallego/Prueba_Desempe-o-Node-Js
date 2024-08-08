@@ -63,7 +63,7 @@ export class OrderController {
 			const allOrders = await orderServices.getAllOrders();
 			res.status(200).json({
 				status: 200,
-				allOrders,
+				orders: allOrders,
 			});
 		} catch (error) {
 			if (error instanceof Error)
@@ -112,7 +112,7 @@ export class OrderController {
 
 			res.status(302).json({
 				status: 302,
-				allOrdersByUser,
+				orders: allOrdersByUser,
 			});
 		} catch (error) {
 			if (error instanceof Error)

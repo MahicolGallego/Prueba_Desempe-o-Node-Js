@@ -63,7 +63,7 @@ export class ProductController {
 			const allProducts = await productServices.getAllProducts();
 			res.status(200).json({
 				status: 200,
-				allProducts,
+				products: allProducts,
 			});
 		} catch (error) {
 			if (error instanceof Error)
